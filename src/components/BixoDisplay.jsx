@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BixoDisplay = ({ pokemon }) => {
+const BixoDisplay = ({ pokemon, onOpenDetails }) => {
   if (!pokemon) {
     return (
       <div className="display-empty">
@@ -23,7 +23,7 @@ const BixoDisplay = ({ pokemon }) => {
         <button className="btn-favorite" onClick={() => alert(`${pokemon.name} adicionado aos favoritos!`)}>
             Favoritar
         </button>
-        <button className="btn-info">
+        <button className="btn-info" onClick={onOpenDetails}>
             Mais Informações
         </button>
       </div>
