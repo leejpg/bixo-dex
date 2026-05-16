@@ -1,36 +1,68 @@
-/* Layout Geral */
-.app-container {
+/* Container do Display Central */
+.pokemon-display-card {
   display: flex;
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Compensação para a Sidebar Fixa */
-.main-content {
-  margin-left: 280px; /* Exatamente a largura da sidebar */
-  flex: 1;
-  padding: 40px;
-  background-color: #ffffff;
-}
-
-.main-header {
-  margin-bottom: 30px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 20px;
-}
-
-.main-header h1 {
-  color: #cc0000;
-  font-size: 2.5rem;
-}
-
-/* Um card temporário apenas para visualização */
-.placeholder-card {
-  border: 2px dashed #ccc;
-  border-radius: 20px;
-  height: 400px;
-  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: #fff;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.main-sprite {
+  width: 300px;
+  height: 300px;
+  filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.2));
+}
+
+.display-name {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  margin: 20px 0;
+  color: #333;
+}
+
+/* Botões */
+.display-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.display-actions button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-favorite {
+  background-color: #ffcb05; /* Amarelo Pokémon */
+  color: #3b4cca;
+}
+
+.btn-favorite:hover {
+  background-color: #e6b800;
+  transform: translateY(-2px);
+}
+
+.btn-info {
+  background-color: #3b4cca; /* Azul Pokémon */
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: #2a3a8c;
+  transform: translateY(-2px);
+}
+
+.display-empty {
+  text-align: center;
+  margin-top: 100px;
   color: #999;
+  font-style: italic;
 }

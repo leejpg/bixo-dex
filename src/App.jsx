@@ -1,21 +1,25 @@
-import React from 'react';
-import Sidebar from './components/Sidebar'; // Ajuste o caminho conforme sua pasta
+import React, { useState } from 'react';
+import Sidebar from './components/Sidebar.jsx';
+import BixoDisplay from './components/BixoDisplay';
+import { bixomons } from './db';
 import './App.css';
 
 function App() {
+  // Estado para armazenar o Pokémon selecionado
+  const [selectedBixomon, setSelectedBixomon] = useState(bixomons[0]);
+
+  const handleSelect = (poke) => {
+    console.log("Clique detectado no App! Pokémon:", poke.name);
+    setSelectedBixomon(poke);
+  };
+
   return (
     <div className="app-container">
-      {/* A nossa barra lateral */}
-      <Sidebar />
+      {/* Passamos a função de mudar o pokemon para a Sidebar */}
+      <Sidebar onSelect={handleSelect} />
 
-      {/* Área principal do site */}
       <main className="main-content">
-        <section className="pokemon-display">
-          {/* Aqui é onde a mágica vai acontecer depois! */}
-          <div className="placeholder-card">
-            <p>Nenhum Pokémon selecionado</p>
-          </div>
-        </section>
+        <BixoDisplay pokemon={selectedBixomon} />
       </main>
     </div>
   );

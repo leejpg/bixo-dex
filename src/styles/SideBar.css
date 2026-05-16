@@ -42,6 +42,14 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.pokemon-item * {
+  pointer-events: none; /* Faz com que os spans dentro da div sejam "transparentes" ao clique */
+}
+
+.pokemon-item {
+  pointer-events: auto !important; /* Garante que a div pai capture o clique */
+}
+
 .pokemon-item:hover {
   transform: scale(1.03);
   background-color: #ffe6e6;
