@@ -10,6 +10,19 @@ function App() {
   const [selectedBixomon, setSelectedBixomon] = useState(bixomons[0]);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
 
+  const [favorites, setFavorites] = useState([]);
+
+  const handleToggleFavorite = (pokemon) => {
+    setFavorites((prev) => {
+      if (prev.some(fav => fav.id === pokemon.id)) {
+        return prev.filter(fav => fav.id !== pokemon.id);
+      }
+
+      return [...prev, pokemon]
+    });
+
+  }
+
   const handleSelect = (poke) => {
     console.log("Clique detectado no App! Pokémon:", poke.name);
     setSelectedBixomon(poke);
@@ -18,12 +31,17 @@ function App() {
   return (
     <div className="app-container">
       {/* Passamos a função de mudar o pokemon para a Sidebar */}
-      <Sidebar onSelect={handleSelect} />
+      <Sidebar 
+        onSelect={handleSelect} 
+        favorites={favorites}
+      />
 
       <main className="main-content">
         <BixoDisplay 
           pokemon={selectedBixomon} 
           onOpenDetails={() => setIsPanelOpen(true)}
+          onToggleFavorite={handleToggleFavorite}
+          isFavorite={favorites.some(fav => fav.id === selectedBixomon?.id)}
         />
       </main>
 

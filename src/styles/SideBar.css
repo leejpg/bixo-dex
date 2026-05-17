@@ -25,21 +25,30 @@
 }
 
 .pokemon-list {
-  flex: 1;
-  overflow-y: auto; /* Permite scroll se a lista for longa */
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Espaçamento entre os cartões */
+  padding: 16px;
+  /* Cria um contexto de isolamento para as transições ficarem suaves */
+  transform-style: preserve-3d; 
 }
 
 .pokemon-item {
   display: flex;
   align-items: center;
-  padding: 10px;
-  margin-bottom: 8px;
-  background: white;
-  border-radius: 8px;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
   cursor: pointer;
-  transition: transform 0.2s;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  
+  /* Transição em todas as propriedades para o efeito de mola ocorrer suavemente */
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.3s ease, 
+              background-color 0.2s ease;
+              
+  transform-origin: center left; /* Faz o crescimento expandir para a direita */
 }
 
 .pokemon-item * {

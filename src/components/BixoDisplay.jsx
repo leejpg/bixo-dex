@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BixoDisplay = ({ pokemon, onOpenDetails }) => {
+const BixoDisplay = ({ pokemon, onOpenDetails, onToggleFavorite, isFavorite }) => {
   if (!pokemon) {
     return (
       <div className="display-empty">
@@ -20,11 +20,16 @@ const BixoDisplay = ({ pokemon, onOpenDetails }) => {
       <h2 className="display-name">{pokemon.name}</h2>
       
       <div className="display-actions">
-        <button className="btn-favorite" onClick={() => alert(`${pokemon.name} adicionado aos favoritos!`)}>
-            ❤
+        {/* Botão dinâmico de favorito */}
+        <button 
+          className={`btn-favorite ${isFavorite ? 'active-fav' : ''}`}
+          onClick={() => onToggleFavorite(pokemon)}
+        >
+          {isFavorite ? '❤️ Favoritado' : '🖤 Favoritar'}
         </button>
+
         <button className="btn-info" onClick={onOpenDetails}>
-            ¡
+          Mais Informações
         </button>
       </div>
     </div>

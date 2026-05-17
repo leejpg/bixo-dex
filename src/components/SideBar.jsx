@@ -1,26 +1,56 @@
 import '../styles/Sidebar.css'
-
+import { useState } from 'react';
 import React from 'react';
 import Item from './Item';
 import { bixomons } from '../db';
 
-const Sidebar = ({ onSelect }) => {
+
+const Sidebar = ({ onSelect, favorites }) => {
+  const [activeTab, setActiveTab] = useState('all');
+
+  const listToRender = activeTab === 'all' ? bixomons : favorites;
+
   return (
     <aside className="pokedex-sidebar">
       <div className="sidebar-header">
         <h2>Bixodéx</h2>
-        <input type="text" placeholder="Pesquisar..." className="search-bar" />
+        
+        {/* ÍCONES DE ALTERNÂNCIA DE PÁGINA */}
+        <div className="tab-menu">
+          <button 
+            className={`tab-btn ${activeTab === 'all' ? 'active' : ''}`}
+            onClick={() => setActiveTab('all')}
+            title="Todos os Bixomons"
+          >
+            🌐 {/* Pode trocar por um ícone do Lucide/FontAwesome depois */}
+          </button>
+          <button 
+            className={`tab-btn ${activeTab === 'fav' ? 'active' : ''}`}
+            onClick={() => setActiveTab('fav')}
+            title="Meus Favoritos"
+          >
+            ❤️ 
+            {favorites.length > 0 && <span className="fav-count">{favorites.length}</span>}
+          </button>
+      
+          <input type="text" placeholder="Pesquisar..." className="search-bar" />
+        </div>
       </div>
+
+      
       
       <div className="pokemon-list">
-        {bixomons.map((poke) => (
+        {listToRender.length === 0 ? (
+          <p className="empty-message">Nenhum bixo por aqui...</p>
+        ) : (
+          listToRender.map((poke) => (
             <Item 
-                key={poke.id}
-                pokemon = {poke}
-                dispararClique={onSelect}
-                
+              key={poke.id} 
+              pokemon={poke} 
+              dispararClique={onSelect} 
             />
-        ))}
+          ))
+        )}
       </div>
     </aside>
   );
