@@ -1,12 +1,22 @@
 export const bixomons = [
     {
         id: 1,
-        name: "Aluno",
+        name: "Adailton",
         desc: "Lorem ipsum dolor sit amet"
     },
     {
         id: 2,
-        name: "Zerodois",
+        name: "Gaiato",
+        desc: "Lorem ipsum dolor sit amet"
+    },
+    {
+        id: 3,
+        name: "Vetor",
+        desc: "Lorem ipsum dolor sit amet"
+    },
+    {
+        id: 4,
+        name: "Meiameia",
         desc: "Lorem ipsum dolor sit amet"
     }
 ]

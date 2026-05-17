@@ -30,7 +30,7 @@ function App() {
       <BixoDetailsPanel 
         pokemon={selectedBixomon} 
         isOpen={isPanelOpen} 
-        onClose={() => setIsPanelOpen(false)} 
+        onClose={() => setIsPanelOpen(false)}
       />
     </div>
   );

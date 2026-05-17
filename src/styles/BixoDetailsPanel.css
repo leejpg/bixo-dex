@@ -6,17 +6,27 @@
   height: 100vh;
   background-color: #ffffff;
   box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
-  z-index: 1000; /* Fica por cima de quase tudo */
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  animation: slideIn 0.3s ease-out; /* Efeito suave ao abrir */
+  
+  /* O SEGREDO ESTÁ AQUI: Transição suave para qualquer mudança no transform */
+  transition: transform 0.3s ease-in-out; 
 }
 
-@keyframes slideIn {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+/* Estado padrão (Fechado): joga a barra 100% para fora da tela na direita */
+.details-panel.closed {
+  transform: translateX(100%);
+  pointer-events: none; /* Evita que o usuário clique na barra invisível */
 }
 
+/* Estado Ativo (Aberto): puxa a barra de volta para a posição original (0) */
+.details-panel.open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Estilos internos normais */
 .panel-header {
   padding: 20px;
   background-color: #3b4cca;

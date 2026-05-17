@@ -21,10 +21,10 @@ const BixoDisplay = ({ pokemon, onOpenDetails }) => {
       
       <div className="display-actions">
         <button className="btn-favorite" onClick={() => alert(`${pokemon.name} adicionado aos favoritos!`)}>
-            Favoritar
+            ❤
         </button>
         <button className="btn-info" onClick={onOpenDetails}>
-            Mais Informações
+            ¡
         </button>
       </div>
     </div>
