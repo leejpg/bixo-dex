@@ -50,6 +50,17 @@
   }
 }
 
+@font-face {
+  font-family: 'PokemonFont';
+  src: url('./assets/Pokemon X and Y.ttf') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: 'PokemonFont';
+}
+
 body {
   margin: 0;
 }
@@ -68,7 +79,6 @@ body {
 
 h1,
 h2 {
-  font-family: var(--heading);
   font-weight: 500;
   color: var(--text-h);
 }
@@ -83,7 +93,7 @@ h1 {
   }
 }
 h2 {
-  font-size: 24px;
+  font-size: 30px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;

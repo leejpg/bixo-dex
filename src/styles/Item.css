@@ -1,0 +1,18 @@
+.pokemon-item {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  
+  /* Transição suave para quando o efeito de mola for ativado */
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.3s ease, 
+              background-color 0.2s ease;
+              
+  transform-origin: center left; /* Faz expandir para a direita */
+}

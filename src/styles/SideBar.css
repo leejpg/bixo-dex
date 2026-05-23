@@ -1,19 +1,22 @@
+/* 1. CONTAINER PRINCIPAL */
 .pokedex-sidebar {
-  width: 280px;
-  height: 100vh;
-  background-color: #f4f4f4;
-  border-right: 4px solid #cc0000;
-  display: flex;
-  flex-direction: column;
   position: fixed;
   left: 0;
   top: 0;
+  width: 340px;
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
+/* 2. HEADER */
 .sidebar-header {
   padding: 20px;
-  background-color: #cc0000;
+  background-color: transparent;
   color: white;
+  flex-shrink: 0;
 }
 
 .search-bar {
@@ -24,44 +27,79 @@
   border: none;
 }
 
+/* 3. A LISTA (Todas as regras consolidadas aqui) */
 .pokemon-list {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Espaçamento entre os cartões */
-  padding: 16px;
-  /* Cria um contexto de isolamento para as transições ficarem suaves */
-  transform-style: preserve-3d; 
+  gap: 12px;
+  
+  /* A MÁGICA ESTÁ AQUI: Aumentamos o padding lateral (24px) 
+     para dar espaço para o scale e o translateX acontecerem */
+  padding: 16px 24px 40px 24px; 
+  
+  transform-style: preserve-3d;
+  flex-grow: 1; 
+  max-height: calc(100vh - 160px); 
+  
+  /* Mantemos o overflow-y para o scroll funcionar */
+  overflow-y: auto; 
+  /* Omitir o overflow-x ou deixá-lo como visível costuma resolver, 
+     mas com o padding de 24px acima, mesmo se você o mantiver como hidden, 
+     o card não deve mais encostar na borda */
+  overflow-x: hidden; 
+  
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; 
 }
 
+/* --- SCROLLBAR --- */
+.pokemon-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pokemon-list::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+/* --- EFEITOS DE HOVER E ANIMAÇÕES --- */
+
+/* O Cartão Selecionado */
+.pokemon-list .pokemon-item:hover {
+  transform: scale(1.08) translateX(5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  background-color: #f8f9fa;
+  z-index: 5;
+}
+
+/* Vizinho de baixo */
+.pokemon-list .pokemon-item:hover + .pokemon-item {
+  transform: scale(1.03) translateX(2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  z-index: 2;
+}
+
+/* Vizinho de cima */
+.pokemon-list:has(.pokemon-item:hover) .pokemon-item:has(+ .pokemon-item:hover) {
+  transform: scale(1.03) translateX(2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  z-index: 2;
+}
+
+/* Longe do foco */
+.pokemon-list:has(.pokemon-item:hover) .pokemon-item:not(:hover):not(+ .pokemon-item):not(:has(+ .pokemon-item:hover)) {
+  opacity: 0.75;
+  transform: scale(0.98);
+}
+
+/* --- INTERNAMENTE NO CARD --- */
 .pokemon-item {
-  display: flex;
-  align-items: center;
-  padding: 16px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  border: 1px solid #e0e0e0;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  
-  /* Transição em todas as propriedades para o efeito de mola ocorrer suavemente */
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-              box-shadow 0.3s ease, 
-              background-color 0.2s ease;
-              
-  transform-origin: center left; /* Faz o crescimento expandir para a direita */
+  pointer-events: auto !important; 
+  /* Adicione uma transição suave para os cards voltarem ao normal sem "pular" */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
 }
 
 .pokemon-item * {
-  pointer-events: none; /* Faz com que os spans dentro da div sejam "transparentes" ao clique */
-}
-
-.pokemon-item {
-  pointer-events: auto !important; /* Garante que a div pai capture o clique */
-}
-
-.pokemon-item:hover {
-  transform: scale(1.03);
-  background-color: #ffe6e6;
+  pointer-events: none; 
 }
 
 .pokemon-id {

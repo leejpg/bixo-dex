@@ -1,9 +1,9 @@
-import '../styles/Sidebar.css'
+import '../styles/SideBar.css'
 import { useState } from 'react';
 import React from 'react';
 import Item from './Item';
 import { bixomons } from '../db';
-
+import bixomonLogo from '../assets/bixomon.png'
 
 const Sidebar = ({ onSelect, favorites }) => {
   const [activeTab, setActiveTab] = useState('all');
@@ -13,7 +13,7 @@ const Sidebar = ({ onSelect, favorites }) => {
   return (
     <aside className="pokedex-sidebar">
       <div className="sidebar-header">
-        <h2>Bixodéx</h2>
+        <img src={bixomonLogo} alt="logo" />
         
         {/* ÍCONES DE ALTERNÂNCIA DE PÁGINA */}
         <div className="tab-menu">

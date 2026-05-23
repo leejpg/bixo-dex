@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Item.css'
 
 const Item = ({ pokemon, dispararClique }) => {
   // Gerando a URL da imagem baseada no ID (estática)
