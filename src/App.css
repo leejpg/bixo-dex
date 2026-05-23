@@ -1,4 +1,8 @@
-/* Container do Display Central */
+.main-content {
+  border: none;
+  outline: none;
+}
+
 .pokemon-display-card {
   display: flex;
   flex-direction: column;

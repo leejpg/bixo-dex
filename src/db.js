@@ -73,6 +73,40 @@ export const bixomons = [
         id: 15,
         name: "Cesinha",
         desc: "Lorem ipsum dolor sit amet"
-    }
-
+    },
+        {
+        id: 16,
+        name: "Tagarela",
+        desc: "Lorem ipsum dolor sit amet"
+    },
+        {
+        id: 17,
+        name: "Cura",
+        desc: "Lorem ipsum dolor sit amet"
+    },
+    {
+        id: 18,
+        name: "Descobre",
+        desc: "Lorem ipsum dolor sit amet"
+    },
+    {
+        id: 19,
+        name: "WR",
+        desc: "Lorem ipsum dolor sit amet"
+    },
+    {
+        id: 20,
+        name: "Cude",
+        desc: "Lorem ipsum dolor sit amet"
+    },
+    {
+        id: 21,
+        name: "Wolks",
+        desc: "Lorem ipsum dolor sit amet"
+    },
+    {
+        id: 22,
+        name: "Melancia",
+        desc: "Lorem ipsum dolor sit amet"
+    },
 ]
