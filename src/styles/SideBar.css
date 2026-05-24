@@ -25,7 +25,7 @@
 
 .search-bar {
   width: 100%;
-  padding: 8px;
+  padding: 1rem;
   margin-top: 10px;
   border-radius: 20px;
   border: none;
@@ -70,22 +70,18 @@
 /* O Cartão Selecionado */
 .pokemon-list .pokemon-item:hover {
   transform: scale(1.08) translateX(5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-  background-color: #f8f9fa;
   z-index: 5;
 }
 
 /* Vizinho de baixo */
 .pokemon-list .pokemon-item:hover + .pokemon-item {
   transform: scale(1.03) translateX(2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
   z-index: 2;
 }
 
 /* Vizinho de cima */
 .pokemon-list:has(.pokemon-item:hover) .pokemon-item:has(+ .pokemon-item:hover) {
   transform: scale(1.03) translateX(2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
   z-index: 2;
 }
 
@@ -121,4 +117,29 @@
 .pokemon-name {
   font-weight: 600;
   text-transform: capitalize;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button :hover {
+  transform: translateY(-2px);
+}
+
+button img {
+  width: 1.6rem;
+}
+
+.tab-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.fav-count {
+  color: white;
 }

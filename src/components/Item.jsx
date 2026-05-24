@@ -10,6 +10,8 @@ const Item = ({ pokemon, dispararClique }) => {
         dispararClique(pokemon); // Aqui você "liga" de volta para o App
       }}>
 
+      <img className = "pokemon-icon" src={pokemon.icon} alt="icon" />
+
       <span className="pokemon-id">#{pokemon.id.toString().padStart(3, '0')}</span>
       
       <span className="pokemon-name">{pokemon.name}</span>

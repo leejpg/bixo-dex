@@ -17,23 +17,26 @@ const Sidebar = ({ onSelect, favorites }) => {
         
         {/* ÍCONES DE ALTERNÂNCIA DE PÁGINA */}
         <div className="tab-menu">
+          <input type="text" placeholder="Pesquisar..." className="search-bar" />
+
           <button 
             className={`tab-btn ${activeTab === 'all' ? 'active' : ''}`}
             onClick={() => setActiveTab('all')}
             title="Todos os Bixomons"
           >
-            🌐 {/* Pode trocar por um ícone do Lucide/FontAwesome depois */}
+            <img src='icons/pokebola.png' alt="Ver todos os bixos" />
           </button>
+          
           <button 
             className={`tab-btn ${activeTab === 'fav' ? 'active' : ''}`}
             onClick={() => setActiveTab('fav')}
             title="Meus Favoritos"
           >
-            ❤️ 
+            <img src='icons/coracao.png' alt="Ver os bixos favoritos" /> 
             {favorites.length > 0 && <span className="fav-count">{favorites.length}</span>}
           </button>
       
-          <input type="text" placeholder="Pesquisar..." className="search-bar" />
+          
         </div>
       </div>
 

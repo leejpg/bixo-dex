@@ -15,6 +15,7 @@ const BixoDetailsPanel = ({ pokemon, isOpen, onClose }) => {
       <div className="panel-content">
         <h3>{pokemon.name}</h3>
         <p><strong>ID:</strong> #{pokemon.id}</p>
+        <p>{pokemon.desc}</p>
         
         <div className="stats-dummy">
           <p>HP: 50</p>

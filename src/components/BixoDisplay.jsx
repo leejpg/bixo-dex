@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/BixoDisplay.css'
 
 const BixoDisplay = ({ pokemon, onOpenDetails, onToggleFavorite, isFavorite }) => {
   if (!pokemon) {
@@ -9,12 +10,10 @@ const BixoDisplay = ({ pokemon, onOpenDetails, onToggleFavorite, isFavorite }) =
     );
   }
 
-  const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
-
   return (
     <div className="pokemon-display-card">
       <div className="sprite-container">
-        <img src={imageUrl} alt={pokemon.name} className="main-sprite" />
+        <img src={pokemon.sprite} alt={pokemon.name} className="main-sprite" />
       </div>
       
       <h2 className="display-name">{pokemon.name}</h2>

@@ -1,6 +1,12 @@
+/* Essa é a div que fica do lado direito da sidebar */
 .main-content {
-  border: none;
-  outline: none;
+  flex: 1; /* Faz ela ocupar todo o resto da tela ao lado da sidebar */
+  height: 100vh; /* Garante que a altura seja 100% da tela */
+  
+  /* A Mágica da Centralização: */
+  display: flex;
+  justify-content: center; /* Centraliza na horizontal */
+  align-items: center; /* Centraliza na vertical */
 }
 
 .pokemon-display-card {
@@ -11,7 +17,6 @@
   background: #fff;
   padding: 40px;
   border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   max-width: 500px;
   margin: 0 auto;
 }
@@ -19,7 +24,6 @@
 .main-sprite {
   width: 300px;
   height: 300px;
-  filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.2));
 }
 
 .display-name {
